@@ -4,7 +4,6 @@ import Grid from '../components/layout/Grid';
 import Search from '../components/layout/Search';
 import { PostsContext } from '../context/PostsContext';
 import { SearchProvider } from '../context/SearchContext';
-import Aside from '../components/layout/Aside';
 
 export default function Posts() {
   const [ posts ] = useContext(PostsContext);
@@ -20,7 +19,6 @@ export default function Posts() {
         </section>
         <Grid>
         <PostsListsDetails />
-        <Aside />
         </Grid>
     </SearchProvider>
   );

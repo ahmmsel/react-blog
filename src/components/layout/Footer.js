@@ -3,7 +3,7 @@ export default function Footer() {
     <>
     <footer className="footer">
       <div className="footer-content">
-        <p>copy right &copy;react blog</p>
+        <p>react blog</p>
       </div>
     </footer>
     </>
