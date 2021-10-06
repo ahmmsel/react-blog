@@ -1,0 +1,23 @@
+@use "color";
+
+.searchForm{
+  input[type="text"]{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    font-size: 1.1rem;
+    text-transform: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .searchForm{
+    input{
+      padding: 0 3rem;
+    }
+  }
+}

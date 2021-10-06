@@ -1,0 +1,157 @@
+// Setting
+@import "setting";
+@import "color";
+
+.header{
+  position: relative;
+  .header-container{
+    @include flex-box(space-between, center, null, wrap);
+    padding: 0 2.5rem;
+    h1{
+      color: $secondery;
+      font-size: 2.2em;
+    }
+    #menu{
+      font-size: 2em;
+      color: $secondery;
+      cursor: pointer;
+      display: none;
+    }
+  }
+  .navbar{
+    @include flex-box(space-between, center, null, wrap);
+    .nav-list{
+      @include flex-box(center, center, null, wrap);
+      .nav-items{
+        padding: 0 1rem;
+        a{
+          color: $secondery;
+        }
+      }
+    }
+  }
+}
+
+.header.active{
+  background-color: $secondery;
+  transition: all ease .6s;
+  position: fixed;
+  top: 0;
+  left: 0; right: 0;
+  z-index: 999;
+  h1,
+  #menu,
+  a{
+    color: $primary;
+  }
+ .navbar .nav-list .nav-items a{
+      color: $primary;
+  }
+}
+// Layout
+.container{
+  flex-basis: 70%;
+  margin: 4rem auto;
+  width: 90%;
+  max-width: 40rem;
+}
+
+.grid{
+  @extend %grid;
+}
+
+.grid-card{
+  @extend %grid-card;
+}
+
+.more-posts{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .9rem;
+  margin-top: 4rem;
+  border-radius: 2rem 4rem;
+  background-color: transparent;
+  // border: solid .1rem $secondery;
+  color: $jouner;
+}
+
+.aside{
+  flex-basis: 20%;
+}
+// Layout
+
+.posts-page{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: wrap;
+  margin-bottom: 2rem;
+  border-bottom: solid $jouner .1rem;
+  header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    small{
+      margin-bottom: 1rem;
+      font-weight: 100;
+    }
+  }
+}
+
+
+.footer{
+  position: relative;
+  .footer-content{
+    @include flex-box(center, center, null, wrap);
+    @include color($secondery, $primary);
+    padding: 1rem 0;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+  }
+}
+
+// MediaQuery
+@media (max-width: 768px) {
+  .header{
+    .header-container{
+      padding: 0 !important;
+      #menu{
+        display: block !important;
+      }
+    }
+    .navbar{
+      @include flex-box(center, center, null, wrap);
+      position: absolute;
+      top: 100%;
+      left: -100%;
+      width: 100%;
+      transition: all ease .5s;
+      opacity: 1;
+      .nav-list{
+        flex-direction: column;
+        padding: 2rem 0;
+        .nav-items{
+          padding: 2rem 0;
+          a{
+            color: $primary;
+          }
+        }
+      }
+    }
+    .navbar.active{
+      background-color: $jouner;
+      left: 0;
+      opacity: 1;
+      transition: all ease .5s;
+      z-index: 1;
+    }
+  }
+
+  .posts-page{
+    flex-direction: column;
+  }
+}
